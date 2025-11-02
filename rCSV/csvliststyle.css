@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #E0F11F;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+/* Instructions */
+.instructions {
+    margin-bottom: 30px;
+}
+
+.instruction-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.instruction-card h3 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #E0F11F;
+    margin-bottom: 15px;
+}
+
+.instruction-card ol {
+    padding-left: 20px;
+}
+
+.instruction-card li {
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.instruction-card code {
+    background: rgba(224, 241, 31, 0.2);
+    color: #E0F11F;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* Auth Section */
+.auth-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-btn {
+    background: #E0F11F;
+    color: #121212;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 200px;
+    position: relative;
+}
+
+.auth-btn:hover {
+    background: #d4e51b;
+    transform: translateY(-2px);
+}
+
+.auth-btn:disabled {
+    background: #666;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.auth-btn:disabled:hover {
+    background: #666;
+    transform: none;
+}
+
+.auth-btn-text {
+    flex: 1;
+    text-align: center;
+}
+
+.auth-btn-google-icon {
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+/* Result Section */
+.result-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.result-header h3 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #E0F11F;
+    margin-bottom: 5px;
+}
+
+.file-count {
+    font-weight: 500;
+    opacity: 0.8;
+    font-size: 1rem;
+}
+
+/* Textarea */
+.textarea-container {
+    margin-bottom: 25px;
+}
+
+#csvOutput {
+    width: 100%;
+    min-height: 200px;
+    max-height: 400px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    resize: vertical;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#csvOutput:focus {
+    border-color: #E0F11F;
+}
+
+#csvOutput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.copy-btn {
+    background: #E0F11F;
+    color: #121212;
+}
+
+.copy-btn:hover {
+    background: #d4e51b;
+}
+
+.copy-btn.copied {
+    background: #4CAF50;
+    color: white;
+}
+
+.player-btn {
+    background: rgba(224, 241, 31, 0.2);
+    color: #E0F11F;
+    border: 1px solid rgba(224, 241, 31, 0.3);
+}
+
+.player-btn:hover {
+    background: rgba(224, 241, 31, 0.3);
+    color: #E0F11F;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(224, 241, 31, 0.3);
+    border-top: 4px solid #E0F11F;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingText {
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer a {
+    color: #E0F11F;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+.footer a:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        max-width: 500px;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .instruction-card {
+        padding: 20px;
+    }
+    
+    .result-section {
+        padding: 25px;
+    }
+    
+    #csvOutput {
+        min-height: 150px;
+        font-size: 13px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-btn {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 350px;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+    }
+    
+    .instruction-card {
+        padding: 15px;
+    }
+    
+    .instruction-card ol {
+        padding-left: 15px;
+    }
+    
+    .result-section {
+        padding: 20px;
+    }
+    
+    .auth-btn {
+        min-width: 180px;
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .auth-btn-google-icon {
+        font-size: 16px;
+    }
+    
+    #csvOutput {
+        min-height: 120px;
+        font-size: 12px;
+        padding: 12px;
+    }
+}
+
+/* Focus styles for accessibility */
+.auth-btn:focus, .action-btn:focus, #csvOutput:focus {
+    outline: 2px solid #E0F11F;
+    outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.3s ease;
+}
+
+.auth-btn, .action-btn, #csvOutput {
+    transition: all 0.3s ease;
+}

@@ -1,0 +1,559 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 900;
+    font-size: 3rem;
+    color: #E0F11F;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+/* Instructions */
+.instructions {
+    margin-bottom: 30px;
+}
+
+.instruction-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.instruction-card h3 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #E0F11F;
+    margin-bottom: 15px;
+}
+
+.instruction-card ol {
+    padding-left: 20px;
+}
+
+.instruction-card li {
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.instruction-card code {
+    background: rgba(224, 241, 31, 0.2);
+    color: #E0F11F;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* Auth Section */
+.auth-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-btn {
+    background: #E0F11F;
+    color: #121212;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 200px;
+    position: relative;
+}
+
+.auth-btn:hover {
+    background: #d4e51b;
+    transform: translateY(-2px);
+}
+
+.auth-btn:disabled {
+    background: #666;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.auth-btn:disabled:hover {
+    background: #666;
+    transform: none;
+}
+
+.auth-btn-text {
+    flex: 1;
+    text-align: center;
+}
+
+.auth-btn-google-icon {
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+/* Result Section */
+.result-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.result-header h3 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #E0F11F;
+    margin-bottom: 5px;
+}
+
+.file-count {
+    font-weight: 500;
+    opacity: 0.8;
+    font-size: 1rem;
+}
+
+/* Songs Container */
+.songs-container {
+    height: 500px;
+    overflow-y: auto;
+    margin-bottom: 25px;
+    padding-right: 10px;
+    position: relative;
+}
+
+.songs-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.songs-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.songs-container::-webkit-scrollbar-thumb {
+    background: #E0F11F;
+    border-radius: 3px;
+}
+
+.songs-container::-webkit-scrollbar-thumb:hover {
+    background: #d4e51b;
+}
+
+/* Song Card */
+.song-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    min-height: 108px; /* Fixed height for virtual scrolling */
+    box-sizing: border-box;
+}
+
+.song-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+.song-card:last-child {
+    margin-bottom: 0;
+}
+
+.song-card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+}
+
+/* Album Art */
+.album-art-container {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.album-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.song-card:hover .album-art {
+    transform: scale(1.05);
+}
+
+.song-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0; /* Allow text to truncate */
+}
+
+.song-title {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #E0F11F;
+    margin: 0;
+    word-wrap: break-word;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.song-artist {
+    font-weight: 500;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    color: white;
+    margin: 0;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.song-file-id {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    color: rgba(224, 241, 31, 0.8);
+    background: rgba(224, 241, 31, 0.1);
+    padding: 3px 6px;
+    border-radius: 6px;
+    word-break: break-all;
+    font-size: 0.75rem;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    min-width: 140px;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.export-btn {
+    background: #E0F11F;
+    color: #121212;
+}
+
+.export-btn:hover {
+    background: #d4e51b;
+}
+
+.export-btn.exported {
+    background: #4CAF50;
+    color: white;
+}
+
+.player-btn {
+    background: rgba(224, 241, 31, 0.2);
+    color: #E0F11F;
+    border: 1px solid rgba(224, 241, 31, 0.3);
+}
+
+.player-btn:hover {
+    background: rgba(224, 241, 31, 0.3);
+    color: #E0F11F;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(224, 241, 31, 0.3);
+    border-top: 4px solid #E0F11F;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingText {
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer a {
+    color: #E0F11F;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+}
+
+.footer a:hover {
+    opacity: 0.8;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    opacity: 0.7;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #E0F11F;
+    margin-bottom: 15px;
+}
+
+.empty-state h4 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        max-width: 500px;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .instruction-card {
+        padding: 20px;
+    }
+    
+    .result-section {
+        padding: 25px;
+    }
+    
+    .songs-container {
+        max-height: 400px;
+    }
+    
+    .song-card {
+        padding: 10px;
+        min-height: 100px;
+    }
+    
+    .song-card-content {
+        gap: 12px;
+    }
+    
+    .album-art-container {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .song-title {
+        font-size: 1rem;
+    }
+    
+    .song-artist {
+        font-size: 0.9rem;
+    }
+    
+    .song-file-id {
+        font-size: 0.75rem;
+        padding: 2px 5px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .action-btn {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 350px;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+    }
+    
+    .instruction-card {
+        padding: 15px;
+    }
+    
+    .instruction-card ol {
+        padding-left: 15px;
+    }
+    
+    .result-section {
+        padding: 20px;
+    }
+    
+    .songs-container {
+        max-height: 350px;
+    }
+    
+    .song-card {
+        padding: 8px;
+        min-height: 90px;
+    }
+    
+    .song-card-content {
+        gap: 10px;
+    }
+    
+    .album-art-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .song-title {
+        font-size: 0.95rem;
+    }
+    
+    .song-artist {
+        font-size: 0.85rem;
+    }
+    
+    .song-file-id {
+        font-size: 0.7rem;
+        padding: 2px 4px;
+    }
+    
+    .auth-btn {
+        min-width: 180px;
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .auth-btn-google-icon {
+        font-size: 16px;
+    }
+}
+
+/* Focus styles for accessibility */
+.auth-btn:focus, .action-btn:focus, .song-card:focus {
+    outline: 2px solid #E0F11F;
+    outline-offset: 2px;
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.3s ease;
+}
+
+.auth-btn, .action-btn, .song-card {
+    transition: all 0.3s ease;
+}

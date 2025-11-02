@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>SpotifyOnBudget</title>
+        <style>
+            @font-face {
+                font-family: Spotify;
+                src: url(./spotify.otf) format("opentype");
+            }
+			@font-face {
+				font-family: 'Comic Sans MS';
+				src: url("./comici.ttf");
+			}
+            .container {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .text-spotify{
+                width: 100%;
+                text-align: center;
+                font-size: 8rem;
+                color: #1BD760;
+                font-family: Spotify;
+
+            }
+            .text-spotify img{
+                width: 6rem;
+            }
+            .comicfont{
+                font-size: 8rem;
+                font-family: 'Comic Sans MS';
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                
+                width: 100%;
+                height: 100vh;
+                
+                background: #000000;
+                background-image: linear-gradient(rgba(27, 215, 96, .25) .1em, transparent .1em), linear-gradient(90deg, rgba(27, 215, 96, .25) .1em, transparent .1em);
+                background-size: 3em 3em;
+            }
+            @media(max-width:740px) {
+               .text-spotify {
+                    font-size: 4rem;
+                }
+                .comicfont {
+                    font-size: 4rem;
+                }
+               .text-spotify img {
+                    width: 3rem;
+                }
+            }
+            @media(max-width:355px) {
+               .text-spotify {
+                    font-size: 2rem;
+                }
+                .comicfont {
+                    font-size: 2rem;
+                }
+               .text-spotify img {
+                    width: 1.5rem;
+                }
+            }
+            @media(max-width:160px) {
+               .text-spotify {
+                    font-size: 1rem;
+                }
+                .comicfont {
+                    font-size: 1rem;
+                }
+               .text-spotify img {
+                    width: 0.75rem;
+                }
+            }
+        </style>
+    </head>
+    <body bgcolor="black">
+        <div class="container">
+            <div class="text-spotify">
+                Spotify <img src="./logo.png"></img>
+                <div class="comicfont">On Budget</div>
+            </div>
+        </div>
+    </body>
+</html>

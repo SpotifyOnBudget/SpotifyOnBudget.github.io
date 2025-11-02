@@ -1,90 +1,95 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <title>SpotifyOnBudget</title>
-        <style>
-            @font-face {
-                font-family: Spotify;
-                src: url(./spotify.otf) format("opentype");
-            }
-			@font-face {
-				font-family: 'Comic Sans MS';
-				src: url("./comici.ttf");
-			}
-            .container {
-                height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .text-spotify{
-                width: 100%;
-                text-align: center;
-                font-size: 8rem;
-                color: #1BD760;
-                font-family: Spotify;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="icon" href="https://realratnadwip.github.io/Public/Media/Logo/128x128icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="auth-section" id="authSection">
+            <h2>Music Player</h2>
+            <p>Please authorize access to your Google Drive</p>
+            <button id="authButton" class="auth-btn">
+                <span class="auth-btn-text">Sign in with Google<i class="fab fa-google auth-btn-google-icon"></i></span>
+            </button>
+        </div>
 
-            }
-            .text-spotify img{
-                width: 6rem;
-            }
-            .comicfont{
-                font-size: 8rem;
-                font-family: 'Comic Sans MS';
-            }
-            body {
-                margin: 0;
-                padding: 0;
+        <div class="player-container" id="playerContainer" style="display: none;">
+            <div class="album-art-container">
+                <img id="albumArt" src="../../Public/Media/pshop.jpg" alt="Album Art">
+            </div>
+
+            <div class="song-info">
+                <div class="song-header">
+                    <div class="song-title-container">
+                        <h1 id="songTitle" class="song-title">Loading...</h1>
+                        <div class="title-controls">
+                            <button id="muteBtn" class="control-btn title-control-btn">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 
-                width: 100%;
-                height: 100vh;
-                
-                background: #000000;
-                background-image: linear-gradient(rgba(27, 215, 96, .25) .1em, transparent .1em), linear-gradient(90deg, rgba(27, 215, 96, .25) .1em, transparent .1em);
-                background-size: 3em 3em;
-            }
-            @media(max-width:740px) {
-               .text-spotify {
-                    font-size: 4rem;
-                }
-                .comicfont {
-                    font-size: 4rem;
-                }
-               .text-spotify img {
-                    width: 3rem;
-                }
-            }
-            @media(max-width:355px) {
-               .text-spotify {
-                    font-size: 2rem;
-                }
-                .comicfont {
-                    font-size: 2rem;
-                }
-               .text-spotify img {
-                    width: 1.5rem;
-                }
-            }
-            @media(max-width:160px) {
-               .text-spotify {
-                    font-size: 1rem;
-                }
-                .comicfont {
-                    font-size: 1rem;
-                }
-               .text-spotify img {
-                    width: 0.75rem;
-                }
-            }
-        </style>
-    </head>
-    <body bgcolor="black">
-        <div class="container">
-            <div class="text-spotify">
-                Spotify <img src="./logo.png"></img>
-                <div class="comicfont">On Budget</div>
+                <div class="artist-container">
+                    <p id="artistName" class="artist-name">Loading...</p>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="loopBtn" class="control-btn">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <button id="prevBtn" class="control-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button id="playPauseBtn" class="control-btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="nextBtn" class="control-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
+                <button id="shuffleBtn" class="control-btn">
+                    <i class="fas fa-random"></i>
+                </button>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div class="time-info">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
             </div>
         </div>
-    </body>
+
+        <div class="loading" id="loadingIndicator" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading song...</p>
+        </div>
+    </div>
+
+    <audio id="audioPlayer" preload="none"></audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+    <script>
+        // Wait for all scripts to load before initializing
+        window.addEventListener('load', () => {
+            // Small delay to ensure all scripts are ready
+            setTimeout(() => {
+                new MusicPlayer();
+            }, 500);
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
 </html>

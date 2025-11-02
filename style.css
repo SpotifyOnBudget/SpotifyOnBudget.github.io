@@ -1,0 +1,471 @@
+:root {
+  --accent-main: #1DB954;
+  --accent-secondary: #1ED760;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #121212;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+body * {
+  outline: none !important;
+}
+
+button * {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;    /* IE 10+ */
+  user-select: none;        /* Standard syntax */
+}
+
+html, body {
+  overflow: auto;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Edge */
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+/* Auth Section */
+.auth-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.auth-section h2 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--accent-main);
+}
+
+.auth-section p {
+    font-weight: 400;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.auth-btn {
+    background: var(--accent-main);
+    color: #121212;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 200px;
+    position: relative;
+}
+
+.auth-btn:hover {
+    background: var(--accent-secondary);
+    transform: translateY(-2px);
+}
+
+.auth-btn:disabled {
+    background: #666;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.auth-btn:disabled:hover {
+    background: #666;
+    transform: none;
+}
+
+.auth-btn-text {
+    flex: 1;
+    text-align: center;
+}
+
+.auth-btn-google-icon {
+    font-size: 18px;
+    margin-left: 8px;
+}
+
+/* Player Container */
+.player-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+}
+
+/* Album Art */
+.album-art-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#albumArt {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+#albumArt:hover {
+    transform: scale(1.05);
+    /*animation-name: spin;
+    animation-duration: 10000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;*/
+}
+
+/*@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}*/
+
+/* Song Info */
+.song-info {
+    margin-bottom: 30px;
+}
+
+.song-header {
+    margin-bottom: 10px;
+}
+
+.song-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.song-title {
+    font-family: 'Big Shoulders Display', cursive;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--accent-main);
+    text-align: left;
+    line-height: 1.2;
+    margin: 0;
+    word-wrap: break-word;
+    flex: 1;
+}
+
+.title-controls {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.title-control-btn {
+    min-width: 32px;
+    min-height: 32px;
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.title-control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.artist-container {
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.artist-name {
+    font-weight: 500;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    white-space: nowrap;
+    display: inline-block;
+    animation: scrollText 15s linear infinite;
+}
+
+.artist-name.no-scroll {
+    animation: none;
+    position: static;
+}
+
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(0); }
+    80% { transform: translateX(-100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: nowrap;
+    overflow: visible;
+    padding: 0 10px;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    min-width: 48px;
+    min-height: 48px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.play-btn {
+    min-width: 56px;
+    min-height: 56px;
+    width: 56px;
+    height: 56px;
+    background: var(--accent-main);
+    color: #121212;
+    font-size: 18px;
+}
+
+.play-btn:hover {
+    background: var(--accent-secondary);
+}
+
+/* Progress Bar */
+.progress-container {
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-main);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+.time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(30, 215, 96, 0.3);
+    border-top: 4px solid var(--accent-main);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        max-width: 350px;
+    }
+    
+    .player-container {
+        padding: 20px;
+    }
+    
+    #albumArt {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .song-title {
+        font-size: 1.6rem;
+    }
+    
+    .artist-name {
+        font-size: 1rem;
+    }
+    
+    .controls {
+        gap: 12px;
+        padding: 0 5px;
+    }
+    
+    .control-btn {
+        min-width: 42px;
+        min-height: 42px;
+        width: 42px;
+        height: 42px;
+        font-size: 14px;
+    }
+    
+    .play-btn {
+        min-width: 50px;
+        min-height: 50px;
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    
+    .title-control-btn {
+        min-width: 28px;
+        min-height: 28px;
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+    
+    .auth-btn {
+        min-width: 180px;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .auth-btn-google-icon {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        max-width: 320px;
+    }
+    
+    #albumArt {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .song-title {
+        font-size: 1.4rem;
+    }
+    
+    .controls {
+        gap: 7px;
+    }
+    
+    .control-btn {
+        min-width: 38px;
+        min-height: 38px;
+        width: 38px;
+        height: 38px;
+        font-size: 13px;
+    }
+    
+    .play-btn {
+        min-width: 46px;
+        min-height: 46px;
+        width: 46px;
+        height: 46px;
+        font-size: 16px;
+    }
+    
+    .title-control-btn {
+        min-width: 26px;
+        min-height: 26px;
+        width: 26px;
+        height: 26px;
+        font-size: 10px;
+    }
+    
+    .auth-btn {
+        min-width: 160px;
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .auth-btn-google-icon {
+        font-size: 14px;
+    }
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.3s ease;
+}
+
+.control-btn, .progress-bar, #albumArt {
+    transition: all 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+.control-btn:focus, .auth-btn:focus, .progress-bar:focus {
+    outline: 2px solid var(--accent-main);
+    outline-offset: 2px;
+}

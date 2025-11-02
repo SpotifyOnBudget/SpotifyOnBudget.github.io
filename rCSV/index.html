@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rMusic CSV Creator</title>
+    <link rel="icon" href="https://realratnadwip.github.io/Public/Media/Logo/128x128icon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="csvliststyle.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">rMusic CSV Creator</h1>
+            <p class="subtitle">Generate file ID list for your music collection</p>
+        </div>
+
+        <div class="instructions" id="instructionsSection">
+            <div class="instruction-card">
+                <h3>📁 Setup Instructions</h3>
+                <ol>
+                    <li>Create a folder structure: <code>My Drive > rMusic > Songs</code></li>
+                    <li>Upload your MP3 files to the "Songs" folder</li>
+                    <li>Set sharing permissions to "Anyone with the link can view"</li>
+                    <li>Click "Generate CSV" below to create your file ID list</li>
+                    <li>Copy the generated list and save it as "rSongList.csv" in your "rMusic" folder</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="auth-section" id="authSection" >
+            <button id="authButton" class="auth-btn">
+                <span class="auth-btn-text">Generate CSV</span>
+                <i class="fab fa-google auth-btn-google-icon"></i>
+            </button>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <div class="result-header">
+                <h3>📋 Generated File IDs</h3>
+                <p id="fileCount" class="file-count">Found 0 files</p>
+            </div>
+            
+            <div class="textarea-container">
+                <textarea id="csvOutput" readonly placeholder="File IDs will appear here..."></textarea>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="copyButton" class="action-btn copy-btn">
+                    <i class="fas fa-copy"></i>
+                    <span>Copy to Clipboard</span>
+                </button>
+                <a href="../index.html" class="action-btn player-btn">
+                    <i class="fas fa-music"></i>
+                    <span>Open Music Player</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="loading" id="loadingIndicator" style="display: none;">
+            <div class="spinner"></div>
+            <p id="loadingText">Scanning your music folder...</p>
+        </div>
+
+        <div class="footer">
+            <p>Created by <a href="https://realratnadwip.github.io" target="_blank" rel="noopener">Ratnadwip Sarkar</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Wait for all scripts to load before initializing
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                new CSVGenerator();
+            }, 500);
+        });
+    </script>
+    <script src="csvscript.js"></script>
+</body>
+</html>
