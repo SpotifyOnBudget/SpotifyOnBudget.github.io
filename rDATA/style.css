@@ -1,3 +1,8 @@
+:root {
+  --accent-main: #1DB954;
+  --accent-secondary: #1ED760;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -32,7 +37,7 @@ body {
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 900;
     font-size: 3rem;
-    color: #E0F11F;
+    color: var(--accent-main);
     margin-bottom: 10px;
 }
 
@@ -60,7 +65,7 @@ body {
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 700;
     font-size: 1.4rem;
-    color: #E0F11F;
+    color: var(--accent-main);
     margin-bottom: 15px;
 }
 
@@ -74,8 +79,8 @@ body {
 }
 
 .instruction-card code {
-    background: rgba(224, 241, 31, 0.2);
-    color: #E0F11F;
+    background: rgba(29, 185, 84, 0.2);
+    color: var(--accent-main);
     padding: 2px 6px;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
@@ -89,7 +94,7 @@ body {
 }
 
 .auth-btn {
-    background: #E0F11F;
+    background: var(--accent-main);
     color: #121212;
     border: none;
     padding: 15px 30px;
@@ -106,7 +111,7 @@ body {
 }
 
 .auth-btn:hover {
-    background: #d4e51b;
+    background: var(--accent-secondary);
     transform: translateY(-2px);
 }
 
@@ -151,7 +156,7 @@ body {
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 700;
     font-size: 1.6rem;
-    color: #E0F11F;
+    color: var(--accent-main);
     margin-bottom: 5px;
 }
 
@@ -180,12 +185,12 @@ body {
 }
 
 .songs-container::-webkit-scrollbar-thumb {
-    background: #E0F11F;
+    background: var(--accent-main);
     border-radius: 3px;
 }
 
 .songs-container::-webkit-scrollbar-thumb:hover {
-    background: #d4e51b;
+    background: var(--accent-secondary);
 }
 
 /* Song Card */
@@ -249,7 +254,7 @@ body {
     font-family: 'Big Shoulders Display', cursive;
     font-weight: 700;
     font-size: 1.1rem;
-    color: #E0F11F;
+    color: var(--accent-main);
     margin: 0;
     word-wrap: break-word;
     line-height: 1.2;
@@ -318,12 +323,12 @@ body {
 }
 
 .export-btn {
-    background: #E0F11F;
+    background: var(--accent-main);
     color: #121212;
 }
 
 .export-btn:hover {
-    background: #d4e51b;
+    background: var(--accent-secondary);
 }
 
 .export-btn.exported {
@@ -333,13 +338,13 @@ body {
 
 .player-btn {
     background: rgba(224, 241, 31, 0.2);
-    color: #E0F11F;
+    color: var(--accent-main);
     border: 1px solid rgba(224, 241, 31, 0.3);
 }
 
 .player-btn:hover {
     background: rgba(224, 241, 31, 0.3);
-    color: #E0F11F;
+    color: var(--accent-main);
 }
 
 /* Loading */
@@ -352,7 +357,7 @@ body {
     width: 40px;
     height: 40px;
     border: 4px solid rgba(224, 241, 31, 0.3);
-    border-top: 4px solid #E0F11F;
+    border-top: 4px solid var(--accent-main);
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin: 0 auto 20px;
@@ -382,7 +387,7 @@ body {
 }
 
 .footer a {
-    color: #E0F11F;
+    color: var(--accent-main);
     text-decoration: none;
     font-weight: 600;
     transition: opacity 0.3s ease;
@@ -401,7 +406,7 @@ body {
 
 .empty-state i {
     font-size: 3rem;
-    color: #E0F11F;
+    color: var(--accent-main);
     margin-bottom: 15px;
 }
 
@@ -545,7 +550,7 @@ body {
 
 /* Focus styles for accessibility */
 .auth-btn:focus, .action-btn:focus, .song-card:focus {
-    outline: 2px solid #E0F11F;
+    outline: 2px solid var(--accent-main);
     outline-offset: 2px;
 }
 
